@@ -5,4 +5,37 @@
 3. En TypeScript, una clase abstracta es un tipo especial de clase que no se puede instanciar directamente, ya que su propósito principal es servir como una plantilla o base para otras clases que la hereden. 
 
 4. El uso de getters y setters es fundamental para lograr el encapsulamiento en programación orientada a objetos, ya que permite controlar el acceso a los atributos de una clase, manteniendo sus datos protegidos y accesibles solo a través de métodos definidos.
+ 5. 
+* Función que saluda, con un nombre obligatorio y un saludo opcional
+```bash 
+function saludar(nombre: string, saludo?: string): void {
+    if (saludo) {
+        console.log(`${saludo}, ${nombre}!`);
+    } else {
+        console.log(`Hola, ${nombre}!`);
+    }
+}
 
+
+saludar("Tatiana");        
+saludar("Tatiana", "Buenos días"); 
+```
+* Función que simula obtener datos de un API y devuelve una Promise
+```bash 
+function obtenerDatos(id: number): Promise<string> {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (id > 0) {
+                resolve(`Datos del usuario ${id}`);
+            } else {
+                reject("ID inválido");
+            }
+        }, 1000);
+    });
+}
+
+
+obtenerDatos(1)
+    .then((datos) => console.log(datos))
+    .catch((error) => console.error(error));
+```
